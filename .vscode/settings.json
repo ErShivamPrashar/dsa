@@ -1,6 +1,6 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "insertposition": "c"
+        "*.c": "c"
     }
 }

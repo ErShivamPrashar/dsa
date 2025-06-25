@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 
-// self refrencial structure
+// self referential structure
 typedef struct node{
     int data;
     struct node* next;
@@ -27,20 +27,23 @@ if (pos==1)
 }
 
 int i=1;
-while (i<pos-1)
+while (i<pos-1 && p != NULL)
 {
-//       temp = temp->next;
       p = p->next;
       i++;
+}
+
+// Check if position is valid
+if (p == NULL) {
+    printf("Error: Position %d is out of bounds.\n", pos);
+    free(ptr);
+    return;
 }
 
 ptr->next = p->next;
 p->next = ptr;
 
-
-
 }
-
 
 
 //insert value at the last position
@@ -49,6 +52,7 @@ SLL* ptr = (SLL*)malloc(sizeof(SLL));
 SLL* temp;
 ptr->data = val;
 ptr->next = NULL;
+//test
 
 if (head == NULL)
 {
@@ -66,7 +70,7 @@ temp->next = ptr;
 }
 
 
-// display linnkedlist data
+// display linked list data
 void display(){
 SLL* temp = head;
 int i=1;

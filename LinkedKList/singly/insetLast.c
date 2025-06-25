@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 
-// self refrencial structure
+// self referential structure
 typedef struct node{
     int data;
     struct node* next;
@@ -33,7 +33,7 @@ temp->next = ptr;
 
 }
 
-// display linnkedlist data
+// display linked list data
 void display(){
 SLL* temp = head;
 int i=1;

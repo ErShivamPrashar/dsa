@@ -3,7 +3,7 @@
 #include<windows.h>
 
 
-// self refrencial structure
+// self referential structure
 typedef struct node{
     int data;
     struct node* next;
@@ -15,6 +15,7 @@ SLL* head = NULL;
 //insert value at the first position
 void insertFirst(int val){
 SLL* ptr = (SLL*)malloc(sizeof(SLL));
+
 ptr->data = val;
 ptr->next = NULL;
 
@@ -29,7 +30,7 @@ head = ptr;
 
 }
 
-// display linnkedlist data
+// display linked list data
 void display(){
 SLL* temp = head;
 int i=1;

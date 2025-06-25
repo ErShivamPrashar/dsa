@@ -52,7 +52,7 @@ SLL* ptr = (SLL*)malloc(sizeof(SLL));
 SLL* temp;
 ptr->data = val;
 ptr->next = NULL;
-//test
+
 
 if (head == NULL)
 {

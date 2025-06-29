@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include<stdlib.h>
 
@@ -7,10 +8,44 @@ typedef struct node{
     int data;
     struct node* next;
     struct node* prev;
-}DLL; // DLL denotes doubly list list program
+}DLL; // DLL denotes doubly  list program
 
 DLL* head = NULL;
 DLL* tail = NULL;
+
+
+
+void deletepos(int pos){
+    DLL *temp = head;
+    DLL *p = temp->next;
+    if(head == NULL){
+        puts("list is empty\n");
+        return;
+    }
+
+    if(pos==1){
+    head = temp->next;
+    head->prev = NULL;
+    printf("%d is deleted\n",temp->data);
+    free(temp);
+        return;
+    }
+
+    int i=1;
+    while (i<pos-1)
+    {
+        temp = temp->next;
+        p = p->next;
+    i++;
+    }
+
+    printf("%d is deleted\n",p->data);
+    temp->next = p->next;
+    temp->next->prev = temp;
+
+    free(p);
+    
+}
 
 
 //insert value at the last position
@@ -47,7 +82,7 @@ while (temp!=NULL)
 
 }
 
-//main function to the doubly linkedlist
+//main function to the singly linkedlist
 int main(){
     //insert value call
     system("color D0");
@@ -59,7 +94,11 @@ int main(){
    
     // display value call
     display();
-getch();
+
+    deletepos(2);
+
+    display();
+   getch();
     return 0;
 }
 

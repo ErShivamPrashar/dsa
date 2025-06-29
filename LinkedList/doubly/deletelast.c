@@ -6,11 +6,33 @@
 typedef struct node{
     int data;
     struct node* next;
-    struct node* prev;
-}DLL; // DLL denotes doubly list list program
+        struct node* prev;
+}DLL; // Dll denotes doubly list list program
 
 DLL* head = NULL;
 DLL* tail = NULL;
+
+
+
+void deletelast(){
+    DLL *temp = tail;
+        DLL *p = temp->prev;
+    if(head == NULL){
+        puts("list is empty\n");
+        return;
+    }
+    // while (temp->next->next!=NULL)
+    // {
+    // temp = temp->next;
+    // p = p->next;
+    // }
+
+    printf("%d is deleted\n",temp->data);
+    p->next = NULL;
+    tail = p;
+    free(temp);
+    
+}
 
 
 //insert value at the last position
@@ -33,7 +55,6 @@ ptr->prev = temp;
 tail = ptr;
 
 }
-
 // display linked list data
 void display(){
 DLL* temp = head;
@@ -47,7 +68,7 @@ while (temp!=NULL)
 
 }
 
-//main function to the doubly linkedlist
+//main function to the singly linkedlist
 int main(){
     //insert value call
     system("color D0");
@@ -58,6 +79,10 @@ int main(){
     insertLast(50);
    
     // display value call
+    display();
+
+    deletelast();
+
     display();
 getch();
     return 0;
